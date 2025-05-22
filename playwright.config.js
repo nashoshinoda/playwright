@@ -7,7 +7,7 @@ import { defineConfig, devices } from '@playwright/test';
 const config = ({
   testDir: './tests', // ./tests will run all the tests. Adding a '/' at the end let us specify a single test case.
   reporter: 'allure-playwright',
-  timeout: 40*1000,
+  timeout: 30 * 1000,
   expect: {
     timeout: 5000,
   },
