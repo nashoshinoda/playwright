@@ -33,7 +33,7 @@ test("Page Playwright test", async ({page}) => {
     await expect(page).toHaveTitle(/Google/)    // You could use ("Google") too.
 });
 
-test("UI Controls", async ({page}) => {
+test.only("UI Controls", async ({page}) => {
     await allure.issue("https://www.google.com.mx", "Google");    // Testing the inclusion of an issue in the Allure Report document.
 
     const usernameField = page.locator("#username");
@@ -62,7 +62,7 @@ test("UI Controls", async ({page}) => {
     // await page.pause();
 });
 
-test.only("@Child window handling", async ({browser}) => {
+test("@Child window handling", async ({browser}) => {
     const context = await browser.newContext();
     const page = await context.newPage();
     const documentLink = page.locator("[href*='documents-request']");
