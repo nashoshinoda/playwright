@@ -12,15 +12,15 @@ test("Browser Context Playwright test", async ({browser}) => {  // .only specifi
 
     await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
 
-    await usernameField.type("rahulshetty");
-    await passwordField.type(validPassword);
+    await usernameField.fill("rahulshetty");
+    await passwordField.fill(validPassword);
     await page.locator("#signInBtn").click();
 
     console.log(await page.locator("[style*='block']").textContent());   // textContext extracts the content from an element by 30s (set in the playwright.config.js)
     await expect(page.locator("[style*='block']")).toContainText(/Incorrect username\/password/);
 
     await usernameField.fill("");
-    await usernameField.type(validUsername);
+    await usernameField.fill(validUsername);
     await signInBtn.click();
 
     await expect(page.getByText("Shop Name")).toBeVisible();
